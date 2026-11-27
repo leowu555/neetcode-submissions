@@ -1,0 +1,11 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        hashMap = {}
+
+        for word in strs:
+            key = "".join(sorted(word))
+            if key not in hashMap:
+                hashMap[key] = [word]
+            else:
+                hashMap[key].append(word)
+        return list(hashMap.values())
